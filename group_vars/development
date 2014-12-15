@@ -1,23 +1,21 @@
 mysql_root_password: devpw
 
 wordpress_sites:
-  - site_name: zerocred.dev
+  - site_name: zerocredcast.dev
     site_hosts:
-      - zerocred.dev
-      - 192.168.50.5
+      - zerocredcast.dev
+    local_path: '../site' # path targeting local project directory (relative to root/Vagrantfile)
     user: vagrant
     group: www-data
-    site_install: true
-    site_title: Zero Cred Podcast
-    admin_user: admin
-    admin_password: admin
-    admin_email: admin@zerocred.dev
+    db_import: ./database/dev.sql
     system_cron: true
+    run_composer: false
+    site_install: false
     multisite:
       enabled: false
     env:
-      wp_home: http://zerocred.dev
-      wp_siteurl: http://zerocred.dev/wp
+      wp_home: http://zerocredcast.dev
+      wp_siteurl: http://zerocredcast.dev/wp
       wp_env: development
       db_name: example_dev
       db_user: example_dbuser
